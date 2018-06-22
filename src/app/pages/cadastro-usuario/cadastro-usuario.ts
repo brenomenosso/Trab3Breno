@@ -1,4 +1,4 @@
-import { Usuario } from './../model/usuario';
+import { Usuario } from '../../model/usuario';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {Component, OnInit } from "@angular/core";
 
