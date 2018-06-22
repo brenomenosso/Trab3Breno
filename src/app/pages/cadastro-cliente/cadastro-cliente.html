@@ -1,0 +1,111 @@
+<form [formGroup]="formGroup">
+  <mat-card fxLayout="column">
+    <mat-card-title class = "text-center">
+      Cadastro Cliente
+    </mat-card-title>
+    <mat-card-subtitle class = "text-submenu">
+      Cliente do Sistema
+    </mat-card-subtitle>
+    <mat-card-content fxFlex="100%">
+      <div fxLayout="column">
+        <div fxLayout="row">
+          <mat-form-field fxFlex="32%">
+            <input matInput type="text" [(ngModel)]="cliente.razaoSocial" placeholder="Razão Social" formControlName="razaoSocial" required>
+            <mat-error align="start" *ngIf="formGroup.controls['razaoSocial'].hasError('required')">
+              Campo obrigatório</mat-error>
+          </mat-form-field>
+          <span fxFlex="2%"></span>
+          <mat-form-field fxFlex="32%">
+            <input matInput type="text" [(ngModel)]="cliente.fantasia" placeholder="Fantasia" formControlName="fantasia" required>
+            <mat-error align="start" *ngIf="formGroup.controls['fantasia'].hasError('required')">
+              Campo obrigatório</mat-error>
+          </mat-form-field>
+          <span fxFlex="2%"></span>
+          <mat-form-field fxFlex="32%">
+            <input matInput type="text" [(ngModel)]="cliente.cpf" placeholder="CPF/CNPJ" formControlName="cpf" required>
+            <mat-error align="start" *ngIf="formGroup.controls['cpf'].hasError('required')">
+              Campo obrigatório</mat-error>
+          </mat-form-field>
+        </div>
+        <div fxLayout="row">
+          <mat-form-field fxFlex="32%">
+            <input matInput type="text" [(ngModel)]="cliente.rg" placeholder="RG" formControlName="rg">
+          </mat-form-field>
+          <span fxFlex="2%"></span>
+          <mat-form-field fxFlex="32%">
+            <input matInput type="text" [(ngModel)]="cliente.cep" placeholder="Cep" formControlName="cep" required>
+            <mat-error align="start" *ngIf="formGroup.controls['cep'].hasError('required')">
+              Campo obrigatório</mat-error>
+          </mat-form-field>
+           <span fxFlex="2%"></span>  
+         <mat-form-field fxFlex="32%">
+          <input matInput type="text" [(ngModel)]="cliente.celular" placeholder="Celular" formControlName="celular" required>
+            <mat-error align="start" *ngIf="formGroup.controls['celular'].hasError('required')">
+              Campo obrigatório</mat-error>
+          </mat-form-field>
+        </div>
+        <div fxLayout="row">
+          <mat-form-field fxFlex="32%">
+            <input matInput type="text" [(ngModel)]="cliente.telefone" placeholder="Telefone" formControlName="telefone" required>
+            <mat-error align="start" *ngIf="formGroup.controls['telefone'].hasError('required')">
+              Campo obrigatório</mat-error>
+          </mat-form-field>
+          <span fxFlex="2%"></span>
+          <mat-form-field fxFlex="32%">
+            <input matInput [matDatepicker]="picker" [(ngModel)]="cliente.dataNascimento" placeholder="Data de Nascimento" formControlName="dataNascimento" required>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+             <mat-error align="start" *ngIf="formGroup.controls['dataNascimento'].hasError('required')">
+              Campo obrigatório</mat-error>
+          </mat-form-field>
+          <span fxFlex="2%"></span>
+          <mat-form-field fxFlex="32%">
+            <input matInput type="text" [(ngModel)]="cliente.email" placeholder="Email" formControlName="email" required>
+             <mat-error align="start" *ngIf="formGroup.controls['email'].hasError('required')">
+              Campo obrigatório</mat-error>
+          </mat-form-field>
+        </div>
+         <div fxLayout="row">
+          <mat-form-field fxFlex="32%">
+            <input matInput type="text" [(ngModel)]="cliente.estado" placeholder="Estado" formControlName="estado" required>
+            <mat-error align="start" *ngIf="formGroup.controls['estado'].hasError('required')">
+              Campo obrigatório</mat-error>
+          </mat-form-field>
+          <span fxFlex="2%"></span>
+          <mat-form-field fxFlex="32%">
+            <input matInput type="text" [(ngModel)]="cliente.cidade" placeholder="Cidade" formControlName="cidade" required>
+            <mat-error align="start" *ngIf="formGroup.controls['cidade'].hasError('required')">
+              Campo obrigatório</mat-error>
+          </mat-form-field>
+          <span fxFlex="2%"></span>
+          <mat-form-field fxFlex="32%">
+            <input matInput type="text" [(ngModel)]="cliente.bairro" placeholder="Bairro" formControlName="bairro" required>
+            <mat-error align="start" *ngIf="formGroup.controls['bairro'].hasError('required')">
+              Campo obrigatório</mat-error>
+          </mat-form-field>
+        </div>
+           <div fxLayout="row">
+          <mat-form-field fxFlex="32%">
+            <input matInput type="text" [(ngModel)]="cliente.rua" placeholder="Rua" formControlName="rua" required>
+            <mat-error align="start" *ngIf="formGroup.controls['rua'].hasError('required')">
+              Campo obrigatório</mat-error>
+          </mat-form-field>
+          <span fxFlex="2%"></span>
+          <mat-form-field fxFlex="32%">
+            <input matInput type="text" [(ngModel)]="cliente.numero" placeholder="Numero" formControlName="numero" required>
+            <mat-error align="start" *ngIf="formGroup.controls['numero'].hasError('required')">
+              Campo obrigatório</mat-error>
+          </mat-form-field>
+          <span fxFlex="2%"></span>
+          <mat-form-field fxFlex="32%">
+            <input matInput type="text" [(ngModel)]="cliente.complemento" placeholder="Complemento" formControlName="complemento" >
+          </mat-form-field>
+        </div>
+       </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button class="botao" color = "primary" [disabled]="formGroup.invalid" (click)="salvar()" mat-button>Salvar</button>
+      <!--<button class="botao" (click)="cancelar()" mat-button>Cancelar</button>-->
+    </mat-card-actions>
+  </mat-card>
+</form>

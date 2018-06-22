@@ -1,0 +1,79 @@
+<form [formGroup]="formGroup">
+  <mat-card fxLayout="column">
+    <mat-card-title class="text-center">
+      Cadastro Usuario
+    </mat-card-title>
+    <mat-card-subtitle class = "text-submenu">
+      Usuários do Sistema
+    </mat-card-subtitle>
+    <mat-card-content fxFlex="100%">
+      <div fxLayout="column">
+        <div fxLayout="row">
+          <mat-form-field fxFlex="50%">
+            <input matInput type="text" [(ngModel)]="usuario.nome" placeholder="Nome" formControlName="nome" required>
+            <mat-error align="start" *ngIf="formGroup.controls['nome'].hasError('required')">
+              Campo obrigatório</mat-error>
+          </mat-form-field>
+          <span fxFlex="2%"></span>
+          <mat-form-field fxFlex="48%">
+            <input matInput type="text" [(ngModel)]="usuario.cpf" placeholder="CPF" formControlName="cpf" required>
+            <mat-error align="start" *ngIf="formGroup.controls['cpf'].hasError('required')">
+              Campo obrigatório</mat-error>
+          </mat-form-field>
+        </div>
+        <div fxLayout="row">
+          <mat-form-field fxFlex="50%">
+            <input matInput type="text" [(ngModel)]="usuario.email" placeholder="Email" formControlName="email" required>
+            <mat-error align="start" *ngIf="formGroup.controls['email'].hasError('required')">
+              Campo obrigatório</mat-error>
+          </mat-form-field>
+          <span fxFlex="2%"></span>
+          <mat-form-field fxFlex="48%">
+            <input matInput type="text" [(ngModel)]="usuario.login" placeholder="Login" formControlName="login" required>
+            <mat-error align="start" *ngIf="formGroup.controls['login'].hasError('required')">
+              Campo obrigatório</mat-error>
+          </mat-form-field>
+        </div>
+        <div fxLayout="row">
+          <mat-form-field fxFlex="24%">
+            <input matInput type="password" [(ngModel)]="usuario.senha" placeholder="Senha" formControlName="senha" required (change)= "onChangeNewSenha()">
+            <mat-error align="start" *ngIf="formGroup.controls['senha'].hasError('required')">
+              Campo obrigatório</mat-error>
+          </mat-form-field>
+          <span fxFlex="2%"></span>
+          <mat-form-field fxFlex="24%">
+            <input matInput type="password" [(ngModel)]="usuario.confirmesenha" placeholder="Confirma Senha" formControlName="confirmesenha" required (change)= "onChangeNewSenha()">
+            <mat-error align="start" *ngIf="formGroup.controls['confirmesenha'].hasError('required')">
+              Campo obrigatório</mat-error>
+                <mat-error align="start" *ngIf="formGroup.controls['confirmesenha'].hasError('senhaNaoConfere')" 
+                  class="mat-text-warn" >Senhas não conferem</mat-error>
+          </mat-form-field>
+          <span fxFlex="2%"></span>
+          <mat-form-field fxFlex="50%">
+            <input matInput type="text" [(ngModel)]="usuario.apelido" placeholder="Apelido" formControlName="apelido">
+          </mat-form-field>
+        </div>
+        <div fxLayout="row">
+          <mat-form-field fxFlex="24%">
+            <input matInput type="text" [(ngModel)]="usuario.telefone" placeholder="Telefone" formControlName="telefone">
+          </mat-form-field>
+          <span fxFlex="2%"></span>
+          <mat-form-field fxFlex="24%">
+            <input matInput type="text" [(ngModel)]="usuario.celular" placeholder="Celular" formControlName="celular">
+          </mat-form-field>
+          <span fxFlex="2%"></span>
+          <mat-form-field fxFlex="50%">
+            <input matInput type="text" [(ngModel)]="usuario.grupousu" placeholder="Grupo Usuário" formControlName="grupousu" required>
+            <mat-error align="start" *ngIf="formGroup.controls['grupousu'].hasError('required')">
+              Campo obrigatório</mat-error>
+          </mat-form-field>
+        </div>
+       </div>
+       <mat-checkbox>Ativo</mat-checkbox> 
+    </mat-card-content>
+    <mat-card-actions>
+      <button class="botao" [disabled]="formGroup.invalid" (click)="salvar()" mat-button>Salvar</button>
+      <!--<button class="botao" color="secondary" (click)="cancelar()" mat-button>Cancelar</button>-->
+    </mat-card-actions>
+  </mat-card>
+</form>
